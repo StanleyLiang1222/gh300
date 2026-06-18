@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GH-300 GitHub Copilot 認證考試模擬系統</title>
+  <meta name="description" content="GH-300 GitHub Copilot 認證考試全真模擬，涵蓋七大章節共 116 道題目，即時回饋答題結果。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --surface2: #21262d;
+      --border: #30363d;
+      --text: #e6edf3;
+      --text-muted: #8b949e;
+      --accent: #58a6ff;
+      --accent2: #79c0ff;
+      --green: #3fb950;
+      --purple: #a371f7;
+      --orange: #f0883e;
+      --gradient: linear-gradient(135deg, #58a6ff 0%, #a371f7 50%, #f0883e 100%);
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── 動態背景粒子 ── */
+    #bg-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .page-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+    }
+
+    /* ── Hero Header ── */
+    .hero {
+      text-align: center;
+      padding: 3.5rem 1rem 2.5rem;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(88, 166, 255, 0.12);
+      border: 1px solid rgba(88, 166, 255, 0.3);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.35rem 1rem;
+      border-radius: 999px;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 900;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 560px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+    }
+
+    /* ── 統計列 ── */
+    .stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .stat-chip {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.75rem 1.5rem;
+      text-align: center;
+    }
+
+    .stat-chip .num {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .stat-chip .label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 0.15rem;
+      font-weight: 500;
+    }
+
+    /* ── 章節卡片 ── */
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .topic-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      text-decoration: none;
+      color: var(--text);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .topic-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--card-accent, var(--accent));
+      border-radius: 16px 16px 0 0;
+    }
+
+    .topic-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--card-accent, var(--accent));
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    }
+
+    .topic-card .card-icon {
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .topic-card .card-topic {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--card-accent, var(--accent));
+    }
+
+    .topic-card h2 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--text);
+    }
+
+    .card-meta {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+
+    .meta-tag {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.2rem 0.6rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .meta-tag.highlight {
+      background: rgba(88,166,255,0.1);
+      border-color: rgba(88,166,255,0.25);
+      color: var(--accent);
+    }
+
+    /* ── 說明區 ── */
+    .instructions {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      margin-top: 2.5rem;
+    }
+
+    .instructions h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    .instructions ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .instructions li {
+      display: flex;
+      gap: 0.75rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .instructions li .icon {
+      flex-shrink: 0;
+      font-size: 1rem;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 2rem 0 0;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 480px) {
+      .topics-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="bg-canvas"></canvas>
+
+  <div class="page-wrap">
+    <header class="hero">
+      <div class="hero-badge">🎯 GitHub Copilot Certification</div>
+      <h1>GH-300<br>模擬測驗系統</h1>
+      <p>涵蓋七大章節、116 道全真模擬題目。作答後即時顯示正確解析，幫助你高效備考 GitHub Copilot 認證。</p>
+
+      <div class="stats-row">
+        <div class="stat-chip">
+          <div class="num">7</div>
+          <div class="label">章節主題</div>
+        </div>
+        <div class="stat-chip">
+          <div class="num">116</div>
+          <div class="label">道題目</div>
+        </div>
+        <div class="stat-chip">
+          <div class="num">即時</div>
+          <div class="label">答題回饋</div>
+        </div>
+      </div>
+    </header>
+
+    <p class="section-title">選擇章節開始練習</p>
+
+    <div class="topics-grid">
+      <a href="GH300quiz_t1.html" class="topic-card" style="--card-accent: #58a6ff;">
+        <div class="card-icon">🤝</div>
+        <div class="card-topic">Topic 1</div>
+        <h2>Responsible AI 負責任的 AI 使用</h2>
+        <div class="card-meta">
+          <span class="meta-tag highlight">12 題</span>
+          <span class="meta-tag">單選 & 多選</span>
+        </div>
+      </a>
+
+      <a href="GH300quiz_t2.html" class="topic-card" style="--card-accent: #a371f7;">
+        <div class="card-icon">⚙️</div>
+        <div class="card-topic">Topic 2</div>
+        <h2>GitHub Copilot Plans & Features 方案與功能</h2>
+        <div class="card-meta">
+          <span class="meta-tag" style="background:rgba(163,113,247,0.1);border-color:rgba(163,113,247,0.3);color:#a371f7;">35 題</span>
+          <span class="meta-tag">單選 & 多選</span>
+        </div>
+      </a>
+
+      <a href="GH300quiz_t3.html" class="topic-card" style="--card-accent: #3fb950;">
+        <div class="card-icon">🧠</div>
+        <div class="card-topic">Topic 3</div>
+        <h2>How Copilot Works & Handles Data 運作原理</h2>
+        <div class="card-meta">
+          <span class="meta-tag" style="background:rgba(63,185,80,0.1);border-color:rgba(63,185,80,0.3);color:#3fb950;">17 題</span>
+          <span class="meta-tag">單選 & 多選</span>
+        </div>
+      </a>
+
+      <a href="GH300quiz_t4.html" class="topic-card" style="--card-accent: #f0883e;">
+        <div class="card-icon">💬</div>
+        <div class="card-topic">Topic 4</div>
+        <h2>Prompt Engineering 提示工程技巧</h2>
+        <div class="card-meta">
+          <span class="meta-tag" style="background:rgba(240,136,62,0.1);border-color:rgba(240,136,62,0.3);color:#f0883e;">8 題</span>
+          <span class="meta-tag">單選 & 多選</span>
+        </div>
+      </a>
+
+      <a href="GH300quiz_t5.html" class="topic-card" style="--card-accent: #56d364;">
+        <div class="card-icon">🔨</div>
+        <div class="card-topic">Topic 5</div>
+        <h2>Developer Use Cases 開發應用場景</h2>
+        <div class="card-meta">
+          <span class="meta-tag" style="background:rgba(86,211,100,0.1);border-color:rgba(86,211,100,0.3);color:#56d364;">17 題</span>
+          <span class="meta-tag">單選 & 多選</span>
+        </div>
+      </a>
+
+      <a href="GH300quiz_t6.html" class="topic-card" style="--card-accent: #e3b341;">
+        <div class="card-icon">🧪</div>
+        <div class="card-topic">Topic 6</div>
+        <h2>Testing with Copilot 測試與驗證</h2>
+        <div class="card-meta">
+          <span class="meta-tag" style="background:rgba(227,179,65,0.1);border-color:rgba(227,179,65,0.3);color:#e3b341;">10 題</span>
+          <span class="meta-tag">單選 & 多選</span>
+        </div>
+      </a>
+
+      <a href="GH300quiz_t7.html" class="topic-card" style="--card-accent: #ff7b72;">
+        <div class="card-icon">🔒</div>
+        <div class="card-topic">Topic 7</div>
+        <h2>Content Exclusion & Security 內容排除與安全</h2>
+        <div class="card-meta">
+          <span class="meta-tag" style="background:rgba(255,123,114,0.1);border-color:rgba(255,123,114,0.3);color:#ff7b72;">17 題</span>
+          <span class="meta-tag">單選 & 多選</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="instructions">
+      <h3>📋 作答說明</h3>
+      <ul>
+        <li><span class="icon">🔵</span> 單選題使用 Radio Button 作答，多選題使用 Checkbox 作答。</li>
+        <li><span class="icon">✅</span> 每一題作答後立即顯示對錯，<strong style="color:#3fb950;">正確答案</strong>以綠色底色標示。</li>
+        <li><span class="icon">🟠</span> 選錯的答案以<strong style="color:#f0883e;">橘色底色</strong>標示，並同時顯示正確解答。</li>
+        <li><span class="icon">🔄</span> 每個章節頁面都提供「重新作答」功能，可一鍵清除所有答案重新練習。</li>
+        <li><span class="icon">⬅️➡️</span> 各章節頁面底部有「上一章節」與「下一章節」按鈕，方便連續練習。</li>
+      </ul>
+    </div>
+
+    <footer>
+      <p>GH-300 GitHub Copilot Certification Exam Simulator &nbsp;•&nbsp; 共 116 道模擬題</p>
+    </footer>
+  </div>
+
+  <script>
+    // 動態背景粒子效果
+    const canvas = document.getElementById('bg-canvas')
+    const ctx = canvas.getContext('2d')
+    let W, H, particles
+
+    const COLORS = ['#58a6ff', '#a371f7', '#f0883e', '#3fb950']
+
+    function resize() {
+      W = canvas.width = window.innerWidth
+      H = canvas.height = window.innerHeight
+    }
+
+    function initParticles() {
+      particles = Array.from({ length: 60 }, () => ({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        r: Math.random() * 2 + 0.5,
+        dx: (Math.random() - 0.5) * 0.4,
+        dy: (Math.random() - 0.5) * 0.4,
+        color: COLORS[Math.floor(Math.random() * COLORS.length)],
+        alpha: Math.random() * 0.5 + 0.1
+      }))
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H)
+      particles.forEach(p => {
+        ctx.beginPath()
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2)
+        ctx.fillStyle = p.color + Math.round(p.alpha * 255).toString(16).padStart(2, '0')
+        ctx.fill()
+
+        p.x += p.dx; p.y += p.dy
+        if (p.x < 0 || p.x > W) p.dx *= -1
+        if (p.y < 0 || p.y > H) p.dy *= -1
+      })
+      requestAnimationFrame(draw)
+    }
+
+    resize()
+    initParticles()
+    draw()
+    window.addEventListener('resize', () => { resize(); initParticles() })
+  </script>
+</body>
+</html>

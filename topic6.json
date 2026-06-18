@@ -1,0 +1,162 @@
+[
+  {
+    "topic": "Topic 6",
+    "question_number": 1,
+    "question_text": "What caution should developers exercise when using GitHub Copilot for assistance with mathematical computations?",
+    "type": "single_choice",
+    "options": {
+      "A": "GitHub Copilot's capability to optimize complex mathematical algorithms beyond manual coding.",
+      "B": "GitHub Copilot's ability to execute and verify mathematical results in real-time.",
+      "C": "GitHub Copilot's automatic update of outdated mathematical formulas to modern standards.",
+      "D": "GitHub Copilot's reliance on pattern-based responses without verifying computation accuracy."
+    },
+    "correct_answer": "D",
+    "community_vote": {
+      "D": "100%"
+    }
+  },
+  {
+    "topic": "Topic 6",
+    "question_number": 2,
+    "question_text": "When using GitHub Copilot Chat to generate boilerplate code for various test types, how can you guide the AI to follow the testing standards of your company?",
+    "type": "single_choice",
+    "options": {
+      "A": "By using a specific slash command in the prompt.",
+      "B": "By using a specific command in the terminal.",
+      "C": "By using a specific setting in GitHub Copilot's configuration.",
+      "D": "By using specific prompt examples in your chat request."
+    },
+    "correct_answer": "D",
+    "community_vote": {
+      "D": "100%"
+    }
+  },
+  {
+    "topic": "Topic 6",
+    "question_number": 3,
+    "question_text": "When using GitHub Copilot to identify missing tests in your codebase, which of the following is the most important factor to consider?",
+    "type": "single_choice",
+    "options": {
+      "A": "Having a high test coverage percentage in the codebase.",
+      "B": "Using well-known coding practices in your repository.",
+      "C": "Ensuring that the correct context is available to GitHub Copilot.",
+      "D": "Close all the tabs in your IDE that do not have tests in them."
+    },
+    "correct_answer": "C",
+    "community_vote": {
+      "C": "100%"
+    }
+  },
+  {
+    "topic": "Topic 6",
+    "question_number": 4,
+    "question_text": "How can GitHub Copilot assist in maintaining consistency across your tests?",
+    "type": "single_choice",
+    "options": {
+      "A": "By providing documentation references based on industry best practices.",
+      "B": "By automatically fixing all tests in the code based on the context.",
+      "C": "By identifying a pattern in the way you write tests and suggesting similar patterns for future tests.",
+      "D": "By writing the implementation code for the function based on context."
+    },
+    "correct_answer": "C",
+    "community_vote": {
+      "C": "100%"
+    }
+  },
+  {
+    "topic": "Topic 6",
+    "question_number": 5,
+    "question_text": "When using GitHub Copilot Chat to generate unit tests, which slash command would you use?",
+    "type": "single_choice",
+    "options": {
+      "A": "/create-tests",
+      "B": "/generate-tests",
+      "C": "/tests",
+      "D": "/init-tests"
+    },
+    "correct_answer": "C",
+    "community_vote": {
+      "C": "100%"
+    }
+  },
+  {
+    "topic": "Topic 6",
+    "question_number": 6,
+    "question_text": "Which of the following statements describes the impact of GitHub Copilot on the software development process?",
+    "type": "single_choice",
+    "options": {
+      "A": "It decreases software vulnerabilities from third party dependencies.",
+      "B": "It increases productivity by automating repetitive coding tasks.",
+      "C": "It reduces developer overhead by automating testing workflows.",
+      "D": "It replaces the need for developers in the software development process."
+    },
+    "correct_answer": "B",
+    "community_vote": {
+      "B": "100%"
+    }
+  },
+  {
+    "topic": "Topic 6",
+    "question_number": 7,
+    "question_text": "Identify the right use cases where GitHub Copilot Chat is most effective. (Choose two.)",
+    "type": "multiple_choice",
+    "options": {
+      "A": "Creation of end-to-end performance testing scenarios for a web application",
+      "B": "Creation of a unit test scenario for newly developed Python code",
+      "C": "Create a technical requirement specification from the business requirement documentation",
+      "D": "Explain a legacy COBOL code and translate the code to another language like C#"
+    },
+    "correct_answer": "AB",
+    "community_vote": {
+      "AB": "100%"
+    }
+  },
+  {
+    "topic": "Topic 6",
+    "question_number": 8,
+    "question_text": "Why code reviewing still necessary when using GitHub Copilot to write tests?",
+    "type": "single_choice",
+    "options": {
+      "A": "Because GitHub Copilot generates the best code possible for the test scenario.",
+      "B": "Because GitHub Copilot can cover all possible scenarios in your test cases.",
+      "C": "Because GitHub Copilot replaces the need for manual testing.",
+      "D": "Because GitHub Copilot's generated test cases may not cover all possible scenarios."
+    },
+    "correct_answer": "D",
+    "community_vote": {
+      "D": "100%"
+    }
+  },
+  {
+    "topic": "Topic 6",
+    "question_number": 9,
+    "question_text": "How does the '/tests' slash command assist developers?",
+    "type": "single_choice",
+    "options": {
+      "A": "Constructs detailed test documentation.",
+      "B": "Creates unit tests for the selected code.",
+      "C": "Executes test cases to find issues with the code.",
+      "D": "Integrates with external testing frameworks."
+    },
+    "correct_answer": "B",
+    "community_vote": {
+      "B": "100%"
+    }
+  },
+  {
+    "topic": "Topic 6",
+    "question_number": 10,
+    "question_text": "How can GitHub Copilot be limited when it comes to suggesting unit tests?",
+    "type": "single_choice",
+    "options": {
+      "A": "GitHub Copilot's limitations in generating unit tests can vary based on the IDE version you are using.",
+      "B": "GitHub Copilot primarily suggest basic unit tests that focus on core functionalities, often requiring additional input from developers for comprehensive coverage.",
+      "C": "GitHub Copilot can handle any complexity in code and automatically generate appropriate unit tests.",
+      "D": "GitHub Copilot can generate all types of unit tests, including those for edge cases and complex integration scenarios."
+    },
+    "correct_answer": "B",
+    "community_vote": {
+      "B": "100%"
+    }
+  }
+]

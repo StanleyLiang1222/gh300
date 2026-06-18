@@ -1,0 +1,132 @@
+[
+  {
+    "topic": "Topic 4",
+    "question_number": 1,
+    "question_text": "When crafting prompts for GitHub Copilot, what is a recommended strategy to enhance the relevance of the generated code?",
+    "type": "single_choice",
+    "options": {
+      "A": "Keep the prompt as short as possible, using single words or brief phrases.",
+      "B": "Provide examples of expected input and output within the prompt.",
+      "C": "Avoid mentioning the programming language to allow for more flexible suggestions.",
+      "D": "Write the prompt in natural language without any programming language."
+    },
+    "correct_answer": "B",
+    "community_vote": {
+      "B": "100%"
+    }
+  },
+  {
+    "topic": "Topic 4",
+    "question_number": 2,
+    "question_text": "What is zero-shot prompting?",
+    "type": "single_choice",
+    "options": {
+      "A": "Giving GitHub Copilot examples of the algorithm and outcome you want to use",
+      "B": "Only giving GitHub Copilot a question as a prompt and no examples",
+      "C": "Giving GitHub Copilot examples of the problem you want to solve",
+      "D": "Giving as little context to GitHub Copilot as possible",
+      "E": "Telling GitHub Copilot it needs to show only the correct answer"
+    },
+    "correct_answer": "B",
+    "community_vote": {
+      "B": "100%"
+    }
+  },
+  {
+    "topic": "Topic 4",
+    "question_number": 3,
+    "question_text": "What are the different ways to give context to GitHub Copilot to get more precise responses? (Choose two.)",
+    "type": "multiple_choice",
+    "options": {
+      "A": "Engage with chat participants such as @workspace to incorporate collaborative context into the responses.",
+      "B": "Access developer's previous projects and code repositories to understand their coding style without explicit permission.",
+      "C": "Utilize to interpret developer's thoughts and intentions without any code or comments.",
+      "D": "Utilize chat variables like #file and #editors to anchor the conversation within the specific context of the files or editors in use."
+    },
+    "correct_answer": "AD",
+    "community_vote": {
+      "AD": "100%"
+    }
+  },
+  {
+    "topic": "Topic 4",
+    "question_number": 4,
+    "question_text": "Select a strategy to increase the performance of GitHub Copilot Chat.",
+    "type": "single_choice",
+    "options": {
+      "A": "Use a single GitHub Copilot Chat query to find resolutions for the collection of technical requirements",
+      "B": "Optimize the usage of memory-intensive operations within generated code",
+      "C": "Apply prompt engineering techniques to be more specific",
+      "D": "Limit the number of concurrent users accessing GitHub Copilot Chat"
+    },
+    "correct_answer": "C",
+    "community_vote": {
+      "C": "100%"
+    }
+  },
+  {
+    "topic": "Topic 4",
+    "question_number": 5,
+    "question_text": "What is few-shot prompting?",
+    "type": "single_choice",
+    "options": {
+      "A": "Telling GitHub Copilot to try multiple times to answer the prompt",
+      "B": "Telling GitHub Copilot to iterate several times on the answer before returning it to you",
+      "C": "Telling GitHub Copilot from which sources it should base the response on",
+      "D": "Telling GitHub Copilot about the mechanism you want it to use and how to incorporate that into the response"
+    },
+    "correct_answer": "D",
+    "community_vote": {
+      "D": "100%"
+    }
+  },
+  {
+    "topic": "Topic 4",
+    "question_number": 6,
+    "question_text": "What role does chat history play in GitHub Copilot's code suggestions?",
+    "type": "single_choice",
+    "options": {
+      "A": "Chat history is irrelevant to GitHub Copilot and does not affect its functionality.",
+      "B": "Chat history provides context to GitHub Copilot, improving the relevance and accuracy of its code suggestions.",
+      "C": "Chat history is stored and shared with other users to enhance collaboration.",
+      "D": "Chat history is used to train the GitHub Copilot model in real-time."
+    },
+    "correct_answer": "B",
+    "community_vote": {
+      "B": "100%"
+    }
+  },
+  {
+    "topic": "Topic 4",
+    "question_number": 7,
+    "question_text": "What are two techniques that can be used to improve prompts to GitHub Copilot? (Choose two.)",
+    "type": "multiple_choice",
+    "options": {
+      "A": "Provide specific success criteria",
+      "B": "Provide links to supporting documentation",
+      "C": "Provide all information about the utilized files",
+      "D": "Provide insight on where to get the content from to get a response."
+    },
+    "correct_answer": "AC",
+    "community_vote": {
+      "AB": "100%"
+    }
+  },
+  {
+    "topic": "Topic 4",
+    "question_number": 8,
+    "question_text": "Which of the following describes role prompting?",
+    "type": "single_choice",
+    "options": {
+      "A": "Describing in your prompt what your role is to get a better suggestion",
+      "B": "Tell GitHub Copilot in what tone of voice it should respond",
+      "C": "Prompt GitHub Copilot to explain what was the role of a suggestion",
+      "D": "Giving GitHub Copilot multiple examples of the form of the data you want to use"
+    },
+    "correct_answer": "A",
+    "community_vote": {
+      "A": "75%",
+      "Other": "25%"
+    }
+  }
+]

@@ -1,0 +1,195 @@
+[
+  {
+    "topic": "Topic 1",
+    "question_number": 1,
+    "question_text": "Which Microsoft ethical AI principle is aimed at ensuring AI systems treat all people equally?",
+    "type": "single_choice",
+    "options": {
+      "A": "Privacy and Security",
+      "B": "Fairness",
+      "C": "Reliability and Safety",
+      "D": "Inclusiveness"
+    },
+    "correct_answer": "B",
+    "community_vote": {
+      "B": "100%"
+    }
+  },
+  {
+    "topic": "Topic 1",
+    "question_number": 2,
+    "question_text": "What can be done during AI development to minimize bias?",
+    "type": "single_choice",
+    "options": {
+      "A": "Collect massive amounts of data for training.",
+      "B": "Focus on accuracy of the data.",
+      "C": "Use diverse data, fairness metrics, and human oversight.",
+      "D": "Improve on the computational efficiency and speed."
+    },
+    "correct_answer": "C",
+    "community_vote": {
+      "C": "100%"
+    }
+  },
+  {
+    "topic": "Topic 1",
+    "question_number": 3,
+    "question_text": "Why is it important to ensure the security of the code used in Generative AI (Gen AI) tools?",
+    "type": "single_choice",
+    "options": {
+      "A": "Ensuring code security prevents unauthorized access and potential data breaches.",
+      "B": "Ensuring code security enables the AI system to handle larger datasets effectively.",
+      "C": "Ensuring code security maintains the integrity of the AI system.",
+      "D": "Ensuring code security supports the development of more advanced AI features."
+    },
+    "correct_answer": "A",
+    "community_vote": {
+      "A": "71%",
+      "C": "29%"
+    }
+  },
+  {
+    "topic": "Topic 1",
+    "question_number": 4,
+    "question_text": "A social media manager wants to use AI to filter content. How can they promote transparency in the platform's AI operations?",
+    "type": "single_choice",
+    "options": {
+      "A": "By providing clear explanations about the types of content the AI is designed to filter and how it arrives at its conclusion.",
+      "B": "By relying on a well-regarded AI development company.",
+      "C": "By regularly updating the AI filtering algorithm.",
+      "D": "By focusing on user satisfaction with the content filtering."
+    },
+    "correct_answer": "A",
+    "community_vote": {
+      "A": "100%"
+    }
+  },
+  {
+    "topic": "Topic 1",
+    "question_number": 5,
+    "question_text": "How does GitHub Copilot Chat utilize its training data and external sources to generate responses when answering coding questions?",
+    "type": "single_choice",
+    "options": {
+      "A": "It primarily relies on the model's training data to generate responses.",
+      "B": "It combines its training data set, code in user repositories, and external sources like Bing to generate responses.",
+      "C": "It uses user-provided documentation and exclusively to generate responses.",
+      "D": "It primarily uses search results from Bing to generate responses."
+    },
+    "correct_answer": "B",
+    "community_vote": {
+      "B": "100%"
+    }
+  },
+  {
+    "topic": "Topic 1",
+    "question_number": 6,
+    "question_text": "Which principle emphasizes that AI systems should be understandable and provide clear information on how they work?",
+    "type": "single_choice",
+    "options": {
+      "A": "Fairness",
+      "B": "Accountability",
+      "C": "Transparency",
+      "D": "Inclusiveness"
+    },
+    "correct_answer": "C",
+    "community_vote": {
+      "C": "100%"
+    }
+  },
+  {
+    "topic": "Topic 1",
+    "question_number": 7,
+    "question_text": "Which of the following is a risk associated with using AI?",
+    "type": "single_choice",
+    "options": {
+      "A": "AI replaces the need for developer opportunities in most fields.",
+      "B": "AI eliminated the need for data privacy regulations.",
+      "C": "AI algorithms are incapable of perpetuating existing biases.",
+      "D": "AI systems can sometimes make decisions that are difficult to interpret."
+    },
+    "correct_answer": "D",
+    "community_vote": {
+      "D": "100%"
+    }
+  },
+  {
+    "topic": "Topic 1",
+    "question_number": 8,
+    "question_text": "What types of prompts or code snippets might be flagged by the GitHub Copilot toxicity filter? (Choose two.)",
+    "type": "multiple_choice",
+    "options": {
+      "A": "Hate speech or discriminatory language (e.g., racial slurs, offensive stereotypes)",
+      "B": "Sexually suggestive or explicit content",
+      "C": "Code that contains logical errors or produces unexpected results",
+      "D": "Code comments containing strong opinions or criticisms"
+    },
+    "correct_answer": "AB",
+    "community_vote": {
+      "AB": "100%"
+    }
+  },
+  {
+    "topic": "Topic 1",
+    "question_number": 9,
+    "question_text": "How can the concept of fairness be integrated into the process of operating an AI tool?",
+    "type": "single_choice",
+    "options": {
+      "A": "Focusing on accessibility will ensure fairness.",
+      "B": "Training AI data and algorithms to be free from biases will ensure fairness.",
+      "C": "Regularly monitoring the AI tool's performance will ensure fairness in its outputs.",
+      "D": "Focusing on collecting large datasets for training will ensure fairness."
+    },
+    "correct_answer": "B",
+    "community_vote": {
+      "B": "100%"
+    }
+  },
+  {
+    "topic": "Topic 1",
+    "question_number": 10,
+    "question_text": "What are the potential risks associated with relying heavily on code generated from GitHub Copilot? (Choose two.)",
+    "type": "multiple_choice",
+    "options": {
+      "A": "GitHub Copilot may introduce security vulnerabilities by suggesting code with known exploits.",
+      "B": "GitHub Copilot's suggestions may not always reflect best practices or the latest coding standards.",
+      "C": "GitHub Copilot may increase development lead time by providing irrelevant suggestions.",
+      "D": "GitHub Copilot may decrease developer velocity by requiring too much time in prompt engineering."
+    },
+    "correct_answer": "AB",
+    "community_vote": {
+      "AB": "100%"
+    }
+  },
+  {
+    "topic": "Topic 1",
+    "question_number": 11,
+    "question_text": "Why might a Generative AI (Gen AI) tool create inaccurate outputs?",
+    "type": "single_choice",
+    "options": {
+      "A": "The Gen AI tool is programmed with a focus on creativity over factual accuracy.",
+      "B": "The Gen AI tool is experiencing downtime and is not fully recovered.",
+      "C": "The training data might contain biases or inconsistencies.",
+      "D": "The Gen AI tool is being overloaded with too many requests at once."
+    },
+    "correct_answer": "C",
+    "community_vote": {
+      "C": "100%"
+    }
+  },
+  {
+    "topic": "Topic 1",
+    "question_number": 12,
+    "question_text": "What should developers consider when relying on GitHub Copilot for generating code that involves statistical analysis?",
+    "type": "single_choice",
+    "options": {
+      "A": "GitHub Copilot will automatically correct any statistical errors found in the user's initial code.",
+      "B": "GitHub Copilot can independently verify the statistical significance of results.",
+      "C": "GitHub Copilot can design new statistical methods that have not been previously documented.",
+      "D": "GitHub Copilot's suggestions are based on statistical trends and may not always apply accurately to specific datasets."
+    },
+    "correct_answer": "D",
+    "community_vote": {
+      "D": "100%"
+    }
+  }
+]

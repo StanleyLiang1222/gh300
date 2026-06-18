@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Topic 2 – Plans & Features | GH-300 模擬測驗</title>
+  <meta name="description" content="GH-300 Topic 2 GitHub Copilot Plans and Features，共 35 道模擬考題，作答即時回饋。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+  <canvas id="bg-canvas"></canvas>
+  <div class="page-wrap">
+    <header class="quiz-header">
+      <a href="GH300quiz.html" class="back-btn">← 返回主頁</a>
+      <div class="topic-badge" style="--tb-color:#a371f7;">Topic 2</div>
+      <h1>GitHub Copilot Plans &amp; Features<br><span>方案與功能特色</span></h1>
+      <div class="progress-bar-wrap"><div class="progress-bar" id="progress-bar"></div></div>
+      <div class="progress-text" id="progress-text">0 / 35 已作答</div>
+    </header>
+
+    <main id="quiz-container"></main>
+
+    <div class="action-bar">
+      <button class="btn-reset" id="btn-reset" onclick="resetQuiz()">🔄 重新作答</button>
+      <div class="nav-btns">
+        <a href="GH300quiz_t1.html" class="btn-nav">← 上一章節</a>
+        <a href="GH300quiz_t3.html" class="btn-nav">下一章節 →</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="quiz.js"></script>
+  <script>
+    const TOPIC_DATA = [
+      {
+        id:"T2Q1", type:"single",
+        question:"What is the primary role of the '/optimize' slash command in Visual Studio?",
+        options:{
+          A:"Translates code into a more performant language.",
+          B:"Automatically formats the code according to the selected style guide.",
+          C:"Summarizes your documentation into more maintainable and readable formats.",
+          D:"Enhances the performance of the selected code by analyzing its runtime complexity."
+        },
+        answer:["D"]
+      },
+      {
+        id:"T2Q2", type:"single",
+        question:"Which GitHub Copilot plan could an Azure DevOps organization use without requiring a GitHub Enterprise license?",
+        options:{
+          A:"GitHub Copilot Enterprise",
+          B:"GitHub Copilot for Azure DevOps",
+          C:"Copilot Teams",
+          D:"GitHub Copilot Individual"
+        },
+        answer:["B"]
+      },
+      {
+        id:"T2Q3", type:"single",
+        question:"Which of the following steps correctly demonstrates how to establish an organization-wide policy for GitHub Copilot Business to restrict its use to certain repositories?",
+        options:{
+          A:"Create a copilot.policy file in each repository",
+          B:"Create a copilot.policy in the .github repository",
+          C:"Configure the policies in the organization settings",
+          D:"Apply policies through the GitHub Actions configuration"
+        },
+        answer:["C"]
+      },
+      {
+        id:"T2Q4", type:"multiple",
+        question:"What type of information can you retrieve through GitHub Copilot Business Subscriptions via REST API? (Choose two.)",
+        options:{
+          A:"View code suggestions for a specific user",
+          B:"List all GitHub Copilot seat assignments for an organization",
+          C:"Get a summary of GitHub Copilot usage for organization members",
+          D:"List of all unsubscribed GitHub Copilot members within an organization"
+        },
+        answer:["B","C"]
+      },
+      {
+        id:"T2Q5", type:"single",
+        question:"What is the best way to share feedback about GitHub Copilot Chat when using it on GitHub Mobile?",
+        options:{
+          A:"The feedback section on the GitHub website.",
+          B:"By tweeting at GitHub's official X (previously known as Twitter) account.",
+          C:"Use the emojis in the Copilot Chat interface.",
+          D:"The Settings menu in the GitHub Mobile app."
+        },
+        answer:["C"]
+      },
+      {
+        id:"T2Q6", type:"single",
+        question:"What specific function does the '/fix' slash command perform?",
+        options:{
+          A:"Proposes changes for detected issues, suggesting corrections for syntax errors and programming mistakes.",
+          B:"Converts pseudocode into executable code, optimizing for readability and maintainability.",
+          C:"Generates new code snippets based on language syntax and best practices.",
+          D:"Initiates a code review with static analysis tools for security and logic errors."
+        },
+        answer:["A"]
+      },
+      {
+        id:"T2Q7", type:"multiple",
+        question:"Which GitHub Copilot pricing plans include features that exclude your GitHub Copilot data like usage, prompts, and suggestions from default training GitHub Copilot? (Choose two.)",
+        options:{
+          A:"GitHub Copilot Codespace",
+          B:"GitHub Copilot Business",
+          C:"GitHub Copilot Individual",
+          D:"GitHub Copilot Enterprise"
+        },
+        answer:["B","D"]
+      },
+      {
+        id:"T2Q8", type:"multiple",
+        question:"When using an IDE with a supported GitHub Copilot plug-in, which Chat features can be accessed from within the IDE? (Choose two.)",
+        options:{
+          A:"Explain code and suggest improvements",
+          B:"Find out about releases and commits",
+          C:"Generate unit tests",
+          D:"Plan coding tasks"
+        },
+        answer:["A","C"]
+      },
+      {
+        id:"T2Q9", type:"multiple",
+        question:"Which Copilot Enterprise features are available in all commercially supported IDEs? (Choose two.)",
+        options:{
+          A:"Knowledge bases",
+          B:"Chat",
+          C:"Inline suggestions",
+          D:"Pull request summaries"
+        },
+        answer:["B","C"]
+      },
+      {
+        id:"T2Q10", type:"multiple",
+        question:"What two options navigate to configure duplicate detection? (Choose two.)",
+        options:{
+          A:"Organization settings -> Copilot -> Policies",
+          B:"Enterprise settings -> Copilot -> Policies",
+          C:"Repository settings -> Copilot -> Policies",
+          D:"User settings -> Copilot -> Policies"
+        },
+        answer:["A","B"]
+      },
+      {
+        id:"T2Q11", type:"multiple",
+        question:"What kind of insights can the GitHub Copilot usage metrics API provide to help evaluate the effectiveness of GitHub Copilot? (Choose two.)",
+        options:{
+          A:"The API can generate detailed reports on code quality improvements made by GitHub Copilot.",
+          B:"The API can track the number of code suggestions accepted and used in the organization.",
+          C:"The API can provide feedback on coding style and standards compliance.",
+          D:"The API can provide Copilot Chat specific suggestions acceptance metrics.",
+          E:"The API can refactor your code to improve productivity."
+        },
+        answer:["B","D"]
+      },
+      {
+        id:"T2Q12", type:"single",
+        question:"How do you generate code suggestions with GitHub Copilot in the CLI?",
+        options:{
+          A:"Describe the project's architecture -> Use the copilot generate command -> Accept the generated suggestion.",
+          B:"Type out the code snippet -> Use the copilot refine command to enhance it -> Review the suggested command.",
+          C:"Write code comments -> Press the suggestion shortcut -> Select the best suggestion from the list.",
+          D:"Use 'gh copilot suggest' -> Write the command you want -> Select the best suggestion from the list."
+        },
+        answer:["D"]
+      },
+      {
+        id:"T2Q13", type:"multiple",
+        question:"Which of the following are true about code suggestions? (Choose two.)",
+        options:{
+          A:"Code suggestions are limited to single-line suggestions",
+          B:"Code suggestions are guaranteed to not expose known security vulnerabilities",
+          C:"Code suggestions will always compile or run without modifications",
+          D:"You can use keyboard shortcuts to accept the next word in a suggestion",
+          E:"Alternative code suggestions can be shown in a new tab"
+        },
+        answer:["D","E"]
+      },
+      {
+        id:"T2Q14", type:"multiple",
+        question:"What reasons could apply if code suggestions are not working in your editor? (Choose three.)",
+        options:{
+          A:"You do not have an active internet connection",
+          B:"Your programming language is not supported",
+          C:"You are working in files included in your .gitignore",
+          D:"You do not have a valid GitHub Copilot license",
+          E:"Your content exclusion is active and blocks the use of GitHub Copilot"
+        },
+        answer:["A","B","D"]
+      },
+      {
+        id:"T2Q15", type:"multiple",
+        question:"How can the insights gained from the metrics API be used to improve the development process in conjunction with GitHub Copilot? (Choose two.)",
+        options:{
+          A:"Real-time debugging and error resolution statistics.",
+          B:"Automated generation of complete project documentation.",
+          C:"Detailed analysis of GitHub Copilot's suggestions vs. manual coding.",
+          D:"Insights on the types of coding languages where GitHub Copilot is most helpful."
+        },
+        answer:["C","D"]
+      },
+      {
+        id:"T2Q16", type:"single",
+        question:"How can users provide feedback about GitHub Copilot Chat using their IDE?",
+        options:{
+          A:"By emailing the support team directly.",
+          B:"Through the 'Share Feedback' button in the Copilot Chat panel.",
+          C:"By filling out a feedback form on the GitHub website.",
+          D:"By posting on the GitHub forums."
+        },
+        answer:["B"]
+      },
+      {
+        id:"T2Q17", type:"multiple",
+        question:"GitHub Copilot in the Command Line Interface (CLI) can be used to configure the following settings: (Choose two.)",
+        options:{
+          A:"Usage analytics",
+          B:"The default editor",
+          C:"The default execution confirmation",
+          D:"GitHub CLI subcommands"
+        },
+        answer:["B","C"]
+      },
+      {
+        id:"T2Q18", type:"multiple",
+        question:"What types of content can GitHub Copilot Knowledge Base answer questions about? (Choose three.)",
+        options:{
+          A:"compiled binaries",
+          B:"code snippets",
+          C:"design patterns",
+          D:"screenshots",
+          E:"documentation"
+        },
+        answer:["B","C","E"]
+      },
+      {
+        id:"T2Q19", type:"single",
+        question:"If you are working on open source projects, GitHub Copilot Individual can be paid:",
+        options:{
+          A:"Through an invoice or a credit card",
+          B:"Through an Azure Subscription",
+          C:"Based on the payment method in your user profile",
+          D:"N/A - Copilot Individual is a free service for all open source projects"
+        },
+        answer:["C"]
+      },
+      {
+        id:"T2Q20", type:"single",
+        question:"What is the primary purpose of organization audit logs in GitHub Copilot Business?",
+        options:{
+          A:"To track the number of lines of code suggested by Copilot",
+          B:"To assign software licenses within the organization",
+          C:"To monitor code conflicts across repositories",
+          D:"To monitor administrator activities and actions within the organization"
+        },
+        answer:["D"]
+      },
+      {
+        id:"T2Q21", type:"multiple",
+        question:"How long does GitHub retain Copilot data for Business and Enterprise? (Choose two.)",
+        options:{
+          A:"Prompts and Suggestions: Retained for 28 days",
+          B:"Prompts and Suggestions: Not retained",
+          C:"User Engagement Data: Kept for Two Years",
+          D:"User Engagement Data: Kept for 1 Year"
+        },
+        answer:["A","C"]
+      },
+      {
+        id:"T2Q22", type:"multiple",
+        question:"How does GitHub Copilot Enterprise assist in code reviews during the pull request process? (Choose two.)",
+        options:{
+          A:"It generates a prose summary and bulleted list of key changes for pull requests.",
+          B:"It can answer questions about the changeset of the pull request.",
+          C:"It automatically merges pull requests after an automated review.",
+          D:"It can validate the accuracy of the changes in the pull request."
+        },
+        answer:["A","B"]
+      },
+      {
+        id:"T2Q23", type:"single",
+        question:"How can you get multiple suggestions from GitHub Copilot?",
+        options:{
+          A:"By using the inline chat functionality with the command /multiple",
+          B:"By using @workspace in the chat window",
+          C:"By opening the completions panel in your editor",
+          D:"By asking for multiple suggestions using comments in your code"
+        },
+        answer:["C"]
+      },
+      {
+        id:"T2Q24", type:"single",
+        question:"What GitHub Copilot pricing plan gives you access to your company's knowledge bases?",
+        options:{
+          A:"GitHub Copilot Enterprise",
+          B:"GitHub Copilot Individual",
+          C:"GitHub Copilot Business",
+          D:"GitHub Copilot Professional"
+        },
+        answer:["A"]
+      },
+      {
+        id:"T2Q25", type:"multiple",
+        question:"Which Copilot Individual features are available when using a supported extension for Visual Studio, VS Code, or JetBrains IDEs? (Choose two.)",
+        options:{
+          A:"Chat",
+          B:"Pull Request Diff Analysis",
+          C:"Code suggestions",
+          D:"Knowledge Base"
+        },
+        answer:["A","C"]
+      },
+      {
+        id:"T2Q26", type:"single",
+        question:"An independent contractor develops applications for a variety of different customers. Assuming no concerns from their customers, which GitHub Copilot plan is best suited?",
+        options:{
+          A:"GitHub Copilot Individual",
+          B:"GitHub Copilot Enterprise",
+          C:"GitHub Copilot Business",
+          D:"GitHub Copilot Teams",
+          E:"GitHub Copilot Business for non-GHE Customers"
+        },
+        answer:["A"]
+      },
+      {
+        id:"T2Q27", type:"single",
+        question:"What configuration needs to be set to get help from Microsoft and GitHub protecting against IP infringement while using GitHub Copilot?",
+        options:{
+          A:"Enforce blocking of MIT or GPL licensed code",
+          B:"Enable GitHub Copilot license checking",
+          C:"Suggestions matching public code to 'blocked'. You need to check code suggestions yourself before accepting"
+        },
+        answer:["C"]
+      },
+      {
+        id:"T2Q28", type:"single",
+        question:"Which GitHub Copilot plan allows for prompt and suggestion collection?",
+        options:{
+          A:"GitHub Copilot Individuals",
+          B:"GitHub Copilot Codespace",
+          C:"GitHub Copilot Business",
+          D:"GitHub Copilot Enterprise"
+        },
+        answer:["D"]
+      },
+      {
+        id:"T2Q29", type:"single",
+        question:"How does GitHub Copilot Chat help in understanding the existing codebase?",
+        options:{
+          A:"By automatically refactoring code to improve readability.",
+          B:"By providing visual diagrams of the code structure.",
+          C:"By running code linters and formatters.",
+          D:"By answering questions about the code and generating explanations."
+        },
+        answer:["D"]
+      },
+      {
+        id:"T2Q30", type:"multiple",
+        question:"How is GitHub Copilot Individual billed? (Choose two.)",
+        options:{
+          A:"Free (not billed) for all open source projects",
+          B:"Monthly, as metered service based on actual consumption",
+          C:"Annually as a subscription",
+          D:"Monthly as a subscription"
+        },
+        answer:["C","D"]
+      },
+      {
+        id:"T2Q31", type:"multiple",
+        question:"Which REST API endpoint is used to modify details about a GitHub Copilot Business subscription? (Choose two.)",
+        options:{
+          A:"Add teams to the Copilot subscription for an organization.",
+          B:"Remove teams from the Copilot subscription for an organization.",
+          C:"Upgrade or downgrade the subscription tier",
+          D:"Migrate Copilot seat assignments between GitHub organizations",
+          E:"Reassign Copilot seats based on GitHub repository size"
+        },
+        answer:["A","B"]
+      },
+      {
+        id:"T2Q32", type:"single",
+        question:"Which of the following is the correct way to access the audit log events for GitHub Copilot Business?",
+        options:{
+          A:"Use the Audit log section in the organization's GitHub settings",
+          B:"Navigate to the Insights tab in the repository settings",
+          C:"Use the Code tab in the GitHub repository",
+          D:"Navigate to the Security tab in the organization's GitHub settings"
+        },
+        answer:["A"]
+      },
+      {
+        id:"T2Q33", type:"single",
+        question:"Which of the following is correct about GitHub Copilot Knowledge Bases?",
+        options:{
+          A:"All file types are indexed",
+          B:"Indexing is static",
+          C:"All repos are indexed",
+          D:"It is an Enterprise feature"
+        },
+        answer:["D"]
+      },
+      {
+        id:"T2Q34", type:"single",
+        question:"What method can be used to interact with GitHub Copilot?",
+        options:{
+          A:"From a watch window in an IDE debug session",
+          B:"By using a properly configured GitHub CLI",
+          C:"From a web browser at https://github.copilot.com",
+          D:"By using chat capabilities in NeoVim"
+        },
+        answer:["B"]
+      },
+      {
+        id:"T2Q35", type:"single",
+        question:"A company is currently storing code in BitBucket and would like to use GitHub Copilot. Which GitHub Copilot plan will be most cost effective to allow them to manage users with their Identity Provider (e.g. Okta)?",
+        options:{
+          A:"GitHub Copilot Individual",
+          B:"GitHub Copilot Enterprise",
+          C:"GitHub Copilot Teams",
+          D:"GitHub Copilot Business for non-GHE customers"
+        },
+        answer:["D"]
+      }
+    ]
+
+    initQuiz(TOPIC_DATA, 'Topic 2', 35)
+  </script>
+</body>
+</html>

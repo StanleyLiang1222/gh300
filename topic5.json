@@ -1,0 +1,275 @@
+[
+  {
+    "topic": "Topic 5",
+    "question_number": 1,
+    "question_text": "In what ways can GitHub Copilot support a developer during the code refactoring process? (Choose two.)",
+    "type": "multiple_choice",
+    "options": {
+      "A": "By providing suggestions for improving code readability and maintainability based on best practices.",
+      "B": "By offering code transformation examples that enhance performance and reduce complexity.",
+      "C": "By independently ensuring compliance with regulatory standards across industries.",
+      "D": "By autonomously refactoring entire codebases to the latest programming language."
+    },
+    "correct_answer": "AB",
+    "community_vote": {
+      "AB": "100%"
+    }
+  },
+  {
+    "topic": "Topic 5",
+    "question_number": 2,
+    "question_text": "What is one of the recommended practices when using GitHub Copilot Chat to enhance code quality?",
+    "type": "single_choice",
+    "options": {
+      "A": "Rely solely on Copilot's suggestions without reviewing them.",
+      "B": "Regularly review and refactor the code suggested by Copilot.",
+      "C": "Disable Copilot's inline suggestions.",
+      "D": "Avoid using Copilot for complex tasks."
+    },
+    "correct_answer": "B",
+    "community_vote": {
+      "B": "100%"
+    }
+  },
+  {
+    "topic": "Topic 5",
+    "question_number": 3,
+    "question_text": "In what ways can GitHub Copilot contribute to the design phase of the Software Development Life Cycle (SDLC)?",
+    "type": "single_choice",
+    "options": {
+      "A": "GitHub Copilot can generate user interface (UI) prototypes without prompting.",
+      "B": "GitHub Copilot can suggest design patterns and best practices relevant to the project.",
+      "C": "GitHub Copilot can independently create a complete software design.",
+      "D": "GitHub Copilot can manage design team collaboration and version control."
+    },
+    "correct_answer": "B",
+    "community_vote": {
+      "B": "100%"
+    }
+  },
+  {
+    "topic": "Topic 5",
+    "question_number": 4,
+    "question_text": "Are there any limitations to consider when using GitHub Copilot for code refactoring?",
+    "type": "single_choice",
+    "options": {
+      "A": "GitHub Copilot may not always produce optimized or best-practice code for refactoring.",
+      "B": "GitHub Copilot always produces bug-free code during refactoring.",
+      "C": "GitHub Copilot understands the context of your entire project and refactors code accordingly.",
+      "D": "GitHub Copilot can only be used with a limited set of programming languages."
+    },
+    "correct_answer": "A",
+    "community_vote": {
+      "A": "100%"
+    }
+  },
+  {
+    "topic": "Topic 5",
+    "question_number": 5,
+    "question_text": "How does GitHub Copilot assist developers in minimizing context switching?",
+    "type": "single_choice",
+    "options": {
+      "A": "GitHub Copilot can predict and prevent bugs before they occur.",
+      "B": "GitHub Copilot allows developers to stay in their IDE.",
+      "C": "GitHub Copilot can completely replace the need for human collaboration.",
+      "D": "GitHub Copilot can automatically handle project management tasks."
+    },
+    "correct_answer": "B",
+    "community_vote": {
+      "B": "100%"
+    }
+  },
+  {
+    "topic": "Topic 5",
+    "question_number": 6,
+    "question_text": "What are the potential limitations of GitHub Copilot in maintaining existing codebases?",
+    "type": "single_choice",
+    "options": {
+      "A": "GitHub Copilot's suggestions are always aware of the entire codebase.",
+      "B": "GitHub Copilot can refactor and optimize the entire codebase up to 10,000 lines of code.",
+      "C": "GitHub Copilot can independently manage and resolve all merge conflicts in version control.",
+      "D": "GitHub Copilot might not fully understand the context and dependencies within a large codebase."
+    },
+    "correct_answer": "D",
+    "community_vote": {
+      "D": "100%"
+    }
+  },
+  {
+    "topic": "Topic 5",
+    "question_number": 7,
+    "question_text": "How can GitHub Copilot aid developers in writing documentation for their code?",
+    "type": "single_choice",
+    "options": {
+      "A": "GitHub Copilot can suggest summaries or descriptions based on the code's functionality.",
+      "B": "GitHub Copilot can only generate content in markdown format.",
+      "C": "GitHub Copilot can automatically generate complete and detailed documentation.",
+      "D": "GitHub Copilot cannot assist in writing documentation or comments."
+    },
+    "correct_answer": "A",
+    "community_vote": {
+      "A": "100%"
+    }
+  },
+  {
+    "topic": "Topic 5",
+    "question_number": 8,
+    "question_text": "How does GitHub Copilot assist developers in reducing the amount of manual boilerplate code they write?",
+    "type": "single_choice",
+    "options": {
+      "A": "By refactoring the entire codebase to eliminate boilerplate code without developer input.",
+      "B": "By suggesting code snippets that can be reused across different parts of the project.",
+      "C": "By engaging in real-time collaboration with multiple developers to write boilerplate code.",
+      "D": "By predicting future coding requirements and pre-emptively generating boilerplate code."
+    },
+    "correct_answer": "B",
+    "community_vote": {
+      "B": "100%"
+    }
+  },
+  {
+    "topic": "Topic 5",
+    "question_number": 9,
+    "question_text": "Which scenarios can GitHub Copilot Chat be used to increase productivity? (Choose two.)",
+    "type": "multiple_choice",
+    "options": {
+      "A": "Create a documentation file for the newly created code base.",
+      "B": "Fast tracking of release management activities to move code to production main branch.",
+      "C": "A project plan for the team needs to be generated using a project management software.",
+      "D": "A developer is added to a new project and would like to understand the current software code."
+    },
+    "correct_answer": "AD",
+    "community_vote": {
+      "AD": "100%"
+    }
+  },
+  {
+    "topic": "Topic 5",
+    "question_number": 10,
+    "question_text": "How does GitHub Copilot Chat help to fix security issues in your codebase?",
+    "type": "single_choice",
+    "options": {
+      "A": "By automatically refactoring the entire codebase to remove vulnerabilities.",
+      "B": "By annotating the given suggestions with known vulnerability patterns.",
+      "C": "By enforcing strict coding standards that prevent the introduction of vulnerabilities.",
+      "D": "By providing detailed reports on the security vulnerabilities present in the codebase."
+    },
+    "correct_answer": "B",
+    "community_vote": {
+      "B": "100%"
+    }
+  },
+  {
+    "topic": "Topic 5",
+    "question_number": 11,
+    "question_text": "Which of the following scenarios best describes the intended use of GitHub Copilot Chat as a tool?",
+    "type": "single_choice",
+    "options": {
+      "A": "A solution for software development, requiring no additional input or oversight.",
+      "B": "A productivity tool that provides suggestions, but relying on human judgement.",
+      "C": "A tool solely designed for debugging and error correction.",
+      "D": "A complete replacement for developers generating code."
+    },
+    "correct_answer": "B",
+    "community_vote": {
+      "B": "100%"
+    }
+  },
+  {
+    "topic": "Topic 5",
+    "question_number": 12,
+    "question_text": "Which of the following prompts can be used to guide GitHub Copilot Chat in refactoring code for quality improvements? (Choose two.)",
+    "type": "multiple_choice",
+    "options": {
+      "A": "\"Suggest ways to enhance the maintainability of this code segment.\"",
+      "B": "\"Show me how to improve the readability of this function.\"",
+      "C": "\"Refactor my application to meet the latest coding standards.\"",
+      "D": "\"Predict future coding trends and update my codebase accordingly.\""
+    },
+    "correct_answer": "AC",
+    "community_vote": {
+      "AB": "100%"
+    }
+  },
+  {
+    "topic": "Topic 5",
+    "question_number": 13,
+    "question_text": "In what way can GitHub Copilot and GitHub Copilot Chat aid developers in modernizing applications?",
+    "type": "single_choice",
+    "options": {
+      "A": "GitHub Copilot can suggest modern programming patterns based on your code.",
+      "B": "GitHub Copilot can create and deploy full-stack applications based on a single query.",
+      "C": "GitHub Copilot can automatically refactor applications to align with upcoming standards.",
+      "D": "GitHub Copilot can directly convert legacy applications into cloud-native architectures."
+    },
+    "correct_answer": "A",
+    "community_vote": {
+      "A": "100%"
+    }
+  },
+  {
+    "topic": "Topic 5",
+    "question_number": 14,
+    "question_text": "How can GitHub Copilot assist with code refactoring tasks?",
+    "type": "single_choice",
+    "options": {
+      "A": "GitHub Copilot can remove unnecessary files from the project directory.",
+      "B": "GitHub Copilot can suggest refactoring improvements for better code quality.",
+      "C": "GitHub Copilot can fix syntax errors without user input.",
+      "D": "GitHub Copilot can automatically rewrite code to follow best practices."
+    },
+    "correct_answer": "D",
+    "community_vote": {
+      "B": "100%"
+    }
+  },
+  {
+    "topic": "Topic 5",
+    "question_number": 15,
+    "question_text": "How can GitHub Copilot facilitate a smoother learning experience when diving into a new programming language?",
+    "type": "single_choice",
+    "options": {
+      "A": "GitHub Copilot's /understand command will help GitHub Copilot understand code written in a targeted programming language.",
+      "B": "GitHub Copilot Chat can provide guidance and support for common coding tasks and challenges in the targeted programming language.",
+      "C": "GitHub Copilot can convert comments into code to grasp the syntax and nuances of a new programming language.",
+      "D": "GitHub Copilot can provide contextualized code suggestions and answer sources from an organization's documentation."
+    },
+    "correct_answer": "B",
+    "community_vote": {
+      "B": "100%"
+    }
+  },
+  {
+    "topic": "Topic 5",
+    "question_number": 16,
+    "question_text": "What method can a developer use to generate sample data with GitHub Copilot? (Choose two.)",
+    "type": "multiple_choice",
+    "options": {
+      "A": "Utilize GitHub Copilot's capability to directly access and used databases to create sample data.",
+      "B": "Leveraging GitHub Copilot's ability to independently initiate and manage data storage services.",
+      "C": "Leveraging GitHub Copilot's suggestions to create a data based on API documentation in the repository.",
+      "D": "Utilizing GitHub Copilot's ability to create fictions information from patterns in training data."
+    },
+    "correct_answer": "CD",
+    "community_vote": {
+      "CD": "100%"
+    }
+  },
+  {
+    "topic": "Topic 5",
+    "question_number": 17,
+    "question_text": "How can you use GitHub Copilot to get inline suggestions for refactoring your code? (Choose two.)",
+    "type": "multiple_choice",
+    "options": {
+      "A": "By using the \"/fix\" command in GitHub Copilot in-line chat.",
+      "B": "By adding comments to your code and triggering a suggestion.",
+      "C": "By highlighting the code, you want to fix, right-clicking, and selecting \"Refactor using GitHub Copilot.\"",
+      "D": "By highlighting the code you want to fix, right-clicking, and selecting \"Fix using GitHub Copilot.\"",
+      "E": "By running the gh copilot fix command."
+    },
+    "correct_answer": "AC",
+    "community_vote": {
+      "AB": "100%"
+    }
+  }
+]

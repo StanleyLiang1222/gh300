@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Topic 3 – How Copilot Works | GH-300 模擬測驗</title>
+  <meta name="description" content="GH-300 Topic 3 How GitHub Copilot Works and Handles Data，共 17 道模擬考題。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+  <canvas id="bg-canvas"></canvas>
+  <div class="page-wrap">
+    <header class="quiz-header">
+      <a href="GH300quiz.html" class="back-btn">← 返回主頁</a>
+      <div class="topic-badge" style="--tb-color:#3fb950;">Topic 3</div>
+      <h1>How Copilot Works &amp; Handles Data<br><span>運作原理與資料處理</span></h1>
+      <div class="progress-bar-wrap"><div class="progress-bar" id="progress-bar"></div></div>
+      <div class="progress-text" id="progress-text">0 / 17 已作答</div>
+    </header>
+
+    <main id="quiz-container"></main>
+
+    <div class="action-bar">
+      <button class="btn-reset" id="btn-reset" onclick="resetQuiz()">🔄 重新作答</button>
+      <div class="nav-btns">
+        <a href="GH300quiz_t2.html" class="btn-nav">← 上一章節</a>
+        <a href="GH300quiz_t4.html" class="btn-nav">下一章節 →</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="quiz.js"></script>
+  <script>
+    const TOPIC_DATA = [
+      {
+        id:"T3Q1", type:"single",
+        question:"What is a likely effect of GitHub Copilot being trained on commonly used code patterns?",
+        options:{
+          A:"Suggest completely novel projects, while reducing time on a project.",
+          B:"Suggest innovative coding solutions that are not yet popular.",
+          C:"Suggest homogeneous solutions if provided a diverse data set.",
+          D:"Suggest code snippets that reflect the most common practices in the training data."
+        },
+        answer:["D"]
+      },
+      {
+        id:"T3Q2", type:"single",
+        question:"How does GitHub Copilot typically handle code suggestions that involve deprecated features or syntax of programming languages?",
+        options:{
+          A:"GitHub Copilot always filters out deprecated elements to promote the use of current standards.",
+          B:"GitHub Copilot may suggest deprecated syntax or features if they are present in its training data.",
+          C:"GitHub Copilot rejects all prompts involving deprecated features to avoid compilation errors.",
+          D:"GitHub Copilot automatically updates deprecated features in its suggestions to the latest version."
+        },
+        answer:["B"]
+      },
+      {
+        id:"T3Q3", type:"multiple",
+        question:"Identify the steps involved in the life cycle of a GitHub Copilot code suggestion. (Choose two.)",
+        options:{
+          A:"Processing telemetry data",
+          B:"Generate suggestions",
+          C:"Retraining the model",
+          D:"Storing user data",
+          E:"Capturing the user's context"
+        },
+        answer:["B","E"]
+      },
+      {
+        id:"T3Q4", type:"single",
+        question:"What role does the pre-processing of user input play in the data flow of GitHub Copilot Chat?",
+        options:{
+          A:"It formats the output response before presenting it to the user.",
+          B:"It filters out irrelevant information from the user's input prompt.",
+          C:"It enriches the input prompt with additional context before passing it to the language model.",
+          D:"It directly generates a response based on the user's input prompt."
+        },
+        answer:["C"]
+      },
+      {
+        id:"T3Q5", type:"multiple",
+        question:"What are the additional checks that need to pass before the GitHub Copilot responses are submitted to the user? (Choose two.)",
+        options:{
+          A:"Code quality",
+          B:"Compatibility with user-specific settings",
+          C:"Performance benchmarking",
+          D:"Suggestions matching public code (optional based on settings)"
+        },
+        answer:["B","D"]
+      },
+      {
+        id:"T3Q6", type:"multiple",
+        question:"What are the potential limitations of GitHub Copilot Chat? (Choose two.)",
+        options:{
+          A:"Ability to handle complex code structures",
+          B:"Limited training data",
+          C:"Extensive support for all programming languages",
+          D:"No biases in code suggestions"
+        },
+        answer:["A","B"]
+      },
+      {
+        id:"T3Q7", type:"single",
+        question:"What is the impact of the \"Fill-In-the-Middle\" (FIM) technique on GitHub Copilot's code suggestions?",
+        options:{
+          A:"Improves suggestions by considering both the prefix and suffix of the code, filling in the middle part more accurately.",
+          B:"Restricts Copilot to use only external databases for generating code suggestions.",
+          C:"Allows Copilot to generate suggestions based only on the prefix of the code.",
+          D:"Ignores both the prefix and suffix of the code, focusing only on user comments for context."
+        },
+        answer:["A"]
+      },
+      {
+        id:"T3Q8", type:"multiple",
+        question:"Which of the following statements correctly describes how GitHub Copilot Individual uses prompt data? (Choose two.)",
+        options:{
+          A:"Real-time user input helps generate context-aware code suggestions.",
+          B:"Prompt data is used internally by GitHub for improving the search engine.",
+          C:"Prompt data is used to train machine learning models for better code suggestions.",
+          D:"Prompt data is stored unencrypted for faster processing."
+        },
+        answer:["A","C"]
+      },
+      {
+        id:"T3Q9", type:"single",
+        question:"What is used by GitHub Copilot in the IDE to determine the prompt context?",
+        options:{
+          A:"Information from the IDE like open tabs, cursor location, selected code.",
+          B:"All the code visible in the current IDE.",
+          C:"All the code in the current repository and any git submodules.",
+          D:"The open tabs in the IDE and the current folder of the terminal."
+        },
+        answer:["A"]
+      },
+      {
+        id:"T3Q10", type:"single",
+        question:"Which of the following does GitHub Copilot's LLM derive context from when producing a response?",
+        options:{
+          A:"Version control system integrated with the IDE",
+          B:"Syntax highlighting scheme of the code in the IDE",
+          C:"Frequency of commits to the repository",
+          D:"Neighboring or related files within a project"
+        },
+        answer:["D"]
+      },
+      {
+        id:"T3Q11", type:"single",
+        question:"What is a benefit of using custom models in GitHub Copilot?",
+        options:{
+          A:"Responses use the organization's LLM engine",
+          B:"Responses are faster to produce and appear sooner",
+          C:"Responses are guaranteed to be correct",
+          D:"Responses use practices and patterns in your repositories"
+        },
+        answer:["D"]
+      },
+      {
+        id:"T3Q12", type:"multiple",
+        question:"How does GitHub Copilot identify matching code and ensure that public code is appropriately handled or blocked? (Choose two.)",
+        options:{
+          A:"Implementing safeguards to detect and avoid suggesting verbatim snippets from public code",
+          B:"Filtering out suggestions that match code from public repositories",
+          C:"Using machine learning models trained only on private repositories",
+          D:"Reviewing and storing user-specific private repository data for future suggestions"
+        },
+        answer:["A","B"]
+      },
+      {
+        id:"T3Q13", type:"single",
+        question:"How does GitHub Copilot utilize chat history to enhance its code completion capabilities?",
+        options:{
+          A:"By sharing chat history with third-party services to improve integration and functionality.",
+          B:"By analyzing past chat interactions to identify common programming patterns and errors.",
+          C:"By logging chat history to monitor user activity and ensure compliance with coding standards.",
+          D:"By using chat history to offer personalized code snippets based on previous prompts."
+        },
+        answer:["D"]
+      },
+      {
+        id:"T3Q14", type:"single",
+        question:"What is the main purpose of the duplication detection filter in GitHub Copilot?",
+        options:{
+          A:"To compare user-generated code against a private repository for potential matches.",
+          B:"To encourage the user to follow coding best practices preventing code duplication.",
+          C:"To allow administrators to control which suggestions are visible to developers based on custom criteria.",
+          D:"To detect and block suggestions that match public code snippets on GitHub if they contain about 150 characters."
+        },
+        answer:["D"]
+      },
+      {
+        id:"T3Q15", type:"single",
+        question:"Where is the proxy service hosted?",
+        options:{
+          A:"Amazon Web Service",
+          B:"Self hosted",
+          C:"Microsoft Azure",
+          D:"Google Cloud Platform"
+        },
+        answer:["C"]
+      },
+      {
+        id:"T3Q16", type:"single",
+        question:"How can GitHub Copilot assist developers during the requirements analysis phase of the Software Development Life Cycle (SDLC)?",
+        options:{
+          A:"By managing stakeholder communication and meetings.",
+          B:"By automatically generating detailed requirements documents.",
+          C:"By providing templates and code snippets that help in documenting requirements.",
+          D:"By identifying and fixing potential requirement conflicts when using /help."
+        },
+        answer:["C"]
+      },
+      {
+        id:"T3Q17", type:"multiple",
+        question:"How can you improve the context used by GitHub Copilot? (Choose two.)",
+        options:{
+          A:"By adding variables (#selection) to your prompt",
+          B:"By adding the full file paths to your prompt of important files",
+          C:"By adding the important files to your .gitconfig",
+          D:"By opening the relevant tabs in your IDE"
+        },
+        answer:["A","B"]
+      }
+    ]
+
+    initQuiz(TOPIC_DATA, 'Topic 3', 17)
+  </script>
+</body>
+</html>

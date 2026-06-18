@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Topic 7 – Content Exclusion & Security | GH-300 模擬測驗</title>
+  <meta name="description" content="GH-300 Topic 7 Content Exclusion and Security，共 17 道模擬考題，作答即時回饋。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+  <canvas id="bg-canvas"></canvas>
+  <div class="page-wrap">
+    <header class="quiz-header">
+      <a href="GH300quiz.html" class="back-btn">← 返回主頁</a>
+      <div class="topic-badge" style="--tb-color:#ff7b72;">Topic 7</div>
+      <h1>Content Exclusion &amp; Security<br><span>內容排除與安全設定</span></h1>
+      <div class="progress-bar-wrap"><div class="progress-bar" id="progress-bar"></div></div>
+      <div class="progress-text" id="progress-text">0 / 17 已作答</div>
+    </header>
+
+    <main id="quiz-container"></main>
+
+    <div class="action-bar">
+      <button class="btn-reset" id="btn-reset" onclick="resetQuiz()">🔄 重新作答</button>
+      <div class="nav-btns">
+        <a href="GH300quiz_t6.html" class="btn-nav">← 上一章節</a>
+        <span class="btn-nav disabled">已完成全部章節 🎉</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="quiz.js"></script>
+  <script>
+    const TOPIC_DATA = [
+      {
+        id:"T7Q1", type:"single",
+        question:"Where can you validate if GitHub Copilot is not returning suggestions because of content exclusions?",
+        options:{
+          A:"The GitHub Copilot errors panel in your IDE",
+          B:"The GitHub Copilot logs on GitHub.com under your user settings",
+          C:"The code suggestions window will display a warning message",
+          D:"The GitHub Copilot icon in the status bar of the editor will display a message."
+        },
+        answer:["D"]
+      },
+      {
+        id:"T7Q2", type:"single",
+        question:"When can GitHub Copilot still use content that was excluded using content exclusion?",
+        options:{
+          A:"When the user prompts with @workspace.",
+          B:"When the repository level settings allow overrides by the user.",
+          C:"If the content exclusion was configured at the enterprise level, and is overwritten at the organization level.",
+          D:"If the contents of an excluded file are referenced in code that is not excluded, for example function calls."
+        },
+        answer:["D"]
+      },
+      {
+        id:"T7Q3", type:"single",
+        question:"What GitHub Copilot configuration needs to be enabled to protect against IP infringements?",
+        options:{
+          A:"Blocking license check configuration",
+          B:"Blocking public code matches",
+          C:"Allowing license check configuration",
+          D:"Allowing public code matches"
+        },
+        answer:["B"]
+      },
+      {
+        id:"T7Q4", type:"single",
+        question:"What is a limitation of content exclusions?",
+        options:{
+          A:"Content exclusions can be worked around as it is only available for Git repositories.",
+          B:"Repository administrators and organization owners cannot manage content exclusion settings.",
+          C:"Content exclusions are only available in the GitHub Copilot Individual plan.",
+          D:"Content exclusions can only be configured by an enterprise administrator."
+        },
+        answer:["A"]
+      },
+      {
+        id:"T7Q5", type:"multiple",
+        question:"What content can be configured to be excluded with content exclusions? (Choose three.)",
+        options:{
+          A:"Gists",
+          B:"Repositories",
+          C:"Files",
+          D:"Lines in files",
+          E:"Folders"
+        },
+        answer:["B","C","E"]
+      },
+      {
+        id:"T7Q6", type:"single",
+        question:"A team is using GitHub Copilot Individual in their daily development activities. They need to exclude specific files from being used to inform code completion suggestions. How can they achieve this?",
+        options:{
+          A:"Upgrade to Copilot Business",
+          B:"Add a .gitignore file to the repo",
+          C:"Have an organization owner configure content exclusions.",
+          D:"Have a repo administrator configure content exclusions",
+          E:"Use the #file Chat variable to exclude the files"
+        },
+        answer:["A"]
+      },
+      {
+        id:"T7Q7", type:"multiple",
+        question:"What do you check when GitHub Copilot content exclusions are not working? (Choose two.)",
+        options:{
+          A:"If GitHub Copilot can connect to the server selected in your user settings.",
+          B:"If the user is in an organization that has content exclusions configured.",
+          C:"If the content exclusion settings changed in the last 30 minutes or before that.",
+          D:"If the user is part of the content exclusion team that limits the use of content exclusions."
+        },
+        answer:["B","C"]
+      },
+      {
+        id:"T7Q8", type:"multiple",
+        question:"What practices enhance the quality of suggestions provided by GitHub Copilot? (Choose three.)",
+        options:{
+          A:"Using meaningful variable names",
+          B:"Clearly defining the problem or task",
+          C:"Including personal information in the code comments",
+          D:"Providing examples of desired output",
+          E:"Use a gitignore file to exclude irrelevant files"
+        },
+        answer:["A","B","D"]
+      },
+      {
+        id:"T7Q9", type:"single",
+        question:"What is a key consideration when relying on GitHub Copilot Chat's explanations of code functionality and proposed improvements?",
+        options:{
+          A:"The explanations are primarily derived from user-provided documentation.",
+          B:"The explanations are dynamically updated based on user feedback.",
+          C:"GitHub Copilot Chat uses a static database for generating explanations.",
+          D:"Reviewing and validating the generated output for accuracy and completeness."
+        },
+        answer:["D"]
+      },
+      {
+        id:"T7Q10", type:"single",
+        question:"How does GitHub Copilot Chat ensure that a function works correctly?",
+        options:{
+          A:"By automatically writing all the tests for the function.",
+          B:"By suggesting assertions based on the code's context and semantics.",
+          C:"By executing the test cases to validate the correctness of the code.",
+          D:"By writing the implementation code for the function."
+        },
+        answer:["A"]
+      },
+      {
+        id:"T7Q11", type:"single",
+        question:"What is the process behind identifying public code matches when using a public code filter enabled in GitHub Copilot?",
+        options:{
+          A:"Running code suggestions through filters designed to detect public code",
+          B:"Comparing suggestions against public code using machine learning",
+          C:"Reviewing the user's browsing history to identify public repositories",
+          D:"Analyzing the context and structure of the code being written"
+        },
+        answer:["A"]
+      },
+      {
+        id:"T7Q12", type:"single",
+        question:"What GitHub Copilot feature can be configured at the organization level to prevent GitHub Copilot suggesting publicly available code snippets?",
+        options:{
+          A:"GitHub Copilot Chat in the IDE",
+          B:"GitHub Copilot access to Bing",
+          C:"GitHub Copilot duplication detection filter",
+          D:"GitHub Copilot Chat in GitHub Mobile"
+        },
+        answer:["C"]
+      },
+      {
+        id:"T7Q13", type:"single",
+        question:"Which of the following GitHub Copilot Business related activities can be tracked using the organization audit logs?",
+        options:{
+          A:"Accepted chat suggestions",
+          B:"Changes to content exclusion settings",
+          C:"Code suggestions made by GitHub Copilot",
+          D:"Suggestions blocked by duplication detection filtering"
+        },
+        answer:["B"]
+      },
+      {
+        id:"T7Q14", type:"single",
+        question:"How long does it take content exclusion to take effect after being added or updated?",
+        options:{
+          A:"Up to 30 minutes",
+          B:"60-90 minutes",
+          C:"45-60 minutes",
+          D:"24 hours"
+        },
+        answer:["A"]
+      },
+      {
+        id:"T7Q15", type:"single",
+        question:"How does GitHub Copilot suggest code optimizations for improved performance?",
+        options:{
+          A:"By enforcing strict coding standards that ensure optimal performance.",
+          B:"By providing detailed reports on the performance of the codebase.",
+          C:"By analyzing the codebase and suggesting more efficient algorithms or data structures.",
+          D:"By automatically rewriting the codebase to use more efficient code."
+        },
+        answer:["C"]
+      },
+      {
+        id:"T7Q16", type:"single",
+        question:"What is the correct way to exclude specific files from being used by GitHub Copilot Business during code suggestions?",
+        options:{
+          A:"Rename the files to include the suffix _no_copilot",
+          B:"Modify the .gitignore file to include the specific files",
+          C:"Use the GitHub Copilot settings in the user interface to exclude files",
+          D:"Add the specific files to a copilot .ignore file"
+        },
+        answer:["C"]
+      },
+      {
+        id:"T7Q17", type:"multiple",
+        question:"What are the effects of content exclusions? (Choose two.)",
+        options:{
+          A:"The IDE will not count coding suggestions in the excluded content.",
+          B:"The excluded content is no longer used while debugging the code.",
+          C:"The excluded content is not directly available to GitHub Copilot to use as context.",
+          D:"GitHub Copilot suggestions are no longer available in the excluded files."
+        },
+        answer:["C","D"]
+      }
+    ]
+
+    initQuiz(TOPIC_DATA, 'Topic 7', 17)
+  </script>
+</body>
+</html>

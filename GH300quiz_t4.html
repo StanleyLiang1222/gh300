@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Topic 4 – Prompt Engineering | GH-300 模擬測驗</title>
+  <meta name="description" content="GH-300 Topic 4 Prompt Engineering，共 8 道模擬考題，作答即時回饋。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+  <canvas id="bg-canvas"></canvas>
+  <div class="page-wrap">
+    <header class="quiz-header">
+      <a href="GH300quiz.html" class="back-btn">← 返回主頁</a>
+      <div class="topic-badge" style="--tb-color:#f0883e;">Topic 4</div>
+      <h1>Prompt Engineering<br><span>提示工程技巧</span></h1>
+      <div class="progress-bar-wrap"><div class="progress-bar" id="progress-bar"></div></div>
+      <div class="progress-text" id="progress-text">0 / 8 已作答</div>
+    </header>
+
+    <main id="quiz-container"></main>
+
+    <div class="action-bar">
+      <button class="btn-reset" id="btn-reset" onclick="resetQuiz()">🔄 重新作答</button>
+      <div class="nav-btns">
+        <a href="GH300quiz_t3.html" class="btn-nav">← 上一章節</a>
+        <a href="GH300quiz_t5.html" class="btn-nav">下一章節 →</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="quiz.js"></script>
+  <script>
+    const TOPIC_DATA = [
+      {
+        id:"T4Q1", type:"single",
+        question:"When crafting prompts for GitHub Copilot, what is a recommended strategy to enhance the relevance of the generated code?",
+        options:{
+          A:"Keep the prompt as short as possible, using single words or brief phrases.",
+          B:"Provide examples of expected input and output within the prompt.",
+          C:"Avoid mentioning the programming language to allow for more flexible suggestions.",
+          D:"Write the prompt in natural language without any programming language."
+        },
+        answer:["B"]
+      },
+      {
+        id:"T4Q2", type:"single",
+        question:"What is zero-shot prompting?",
+        options:{
+          A:"Giving GitHub Copilot examples of the algorithm and outcome you want to use",
+          B:"Only giving GitHub Copilot a question as a prompt and no examples",
+          C:"Giving GitHub Copilot examples of the problem you want to solve",
+          D:"Giving as little context to GitHub Copilot as possible",
+          E:"Telling GitHub Copilot it needs to show only the correct answer"
+        },
+        answer:["B"]
+      },
+      {
+        id:"T4Q3", type:"multiple",
+        question:"What are the different ways to give context to GitHub Copilot to get more precise responses? (Choose two.)",
+        options:{
+          A:"Engage with chat participants such as @workspace to incorporate collaborative context into the responses.",
+          B:"Access developer's previous projects and code repositories to understand their coding style without explicit permission.",
+          C:"Utilize to interpret developer's thoughts and intentions without any code or comments.",
+          D:"Utilize chat variables like #file and #editors to anchor the conversation within the specific context of the files or editors in use."
+        },
+        answer:["A","D"]
+      },
+      {
+        id:"T4Q4", type:"single",
+        question:"Select a strategy to increase the performance of GitHub Copilot Chat.",
+        options:{
+          A:"Use a single GitHub Copilot Chat query to find resolutions for the collection of technical requirements",
+          B:"Optimize the usage of memory-intensive operations within generated code",
+          C:"Apply prompt engineering techniques to be more specific",
+          D:"Limit the number of concurrent users accessing GitHub Copilot Chat"
+        },
+        answer:["C"]
+      },
+      {
+        id:"T4Q5", type:"single",
+        question:"What is few-shot prompting?",
+        options:{
+          A:"Telling GitHub Copilot to try multiple times to answer the prompt",
+          B:"Telling GitHub Copilot to iterate several times on the answer before returning it to you",
+          C:"Telling GitHub Copilot from which sources it should base the response on",
+          D:"Telling GitHub Copilot about the mechanism you want it to use and how to incorporate that into the response"
+        },
+        answer:["D"]
+      },
+      {
+        id:"T4Q6", type:"single",
+        question:"What role does chat history play in GitHub Copilot's code suggestions?",
+        options:{
+          A:"Chat history is irrelevant to GitHub Copilot and does not affect its functionality.",
+          B:"Chat history provides context to GitHub Copilot, improving the relevance and accuracy of its code suggestions.",
+          C:"Chat history is stored and shared with other users to enhance collaboration.",
+          D:"Chat history is used to train the GitHub Copilot model in real-time."
+        },
+        answer:["B"]
+      },
+      {
+        id:"T4Q7", type:"multiple",
+        question:"What are two techniques that can be used to improve prompts to GitHub Copilot? (Choose two.)",
+        options:{
+          A:"Provide specific success criteria",
+          B:"Provide links to supporting documentation",
+          C:"Provide all information about the utilized files",
+          D:"Provide insight on where to get the content from to get a response."
+        },
+        answer:["A","C"]
+      },
+      {
+        id:"T4Q8", type:"single",
+        question:"Which of the following describes role prompting?",
+        options:{
+          A:"Describing in your prompt what your role is to get a better suggestion",
+          B:"Tell GitHub Copilot in what tone of voice it should respond",
+          C:"Prompt GitHub Copilot to explain what was the role of a suggestion",
+          D:"Giving GitHub Copilot multiple examples of the form of the data you want to use"
+        },
+        answer:["A"]
+      }
+    ]
+
+    initQuiz(TOPIC_DATA, 'Topic 4', 8)
+  </script>
+</body>
+</html>
